@@ -10,17 +10,18 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const options = {good, neutral, bad};
+  const options = { good, neutral, bad };
+  console.log(options);
   const handleClickOnBtn = e => {
-   switch (e.target.id) {
-     case 'good':
-       setGood(good + 1);
+    switch (e.target.id) {
+      case 'good':
+        setGood(prevGood => prevGood + 1);
        break;
      case 'neutral':
-       setNeutral(neutral + 1);
+       setNeutral(prevNeutral => prevNeutral + 1);
        break;
      case 'bad':
-       setBad(bad + 1);
+       setBad(prevBad => prevBad + 1);
        break;
      default:
        throw new Error('Undefined option')
